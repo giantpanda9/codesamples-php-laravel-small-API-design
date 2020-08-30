@@ -9,7 +9,7 @@ To demonstrate ability to create own APIs using the Laravel framework and api.ph
 2. Laravel (the latest version being installed from Ubuntu 18.04 repositories)
 3. Ubuntu 18.04
 # Installation instructions (approximate, not the last ones to follow):
-1. Ubuntu mino.iso installed without any components in VirtualBox is required
+1. Ubuntu mini.iso installed without any components in VirtualBox is required
 2. Please set Adapter 1 in VirtualBox Guest settings to NAT value, and Adapter 2 to Network Bridge value
 3. Set port redirection for Adapter one as follows(Name, Protocol, Host Address, Host port, Guest Address, Guest Port)
 A. SSH, TCP, 127.0.0.1, 2222, , 22
