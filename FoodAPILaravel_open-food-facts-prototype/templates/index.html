@@ -1,0 +1,32 @@
+<!--templates/index.html-->
+<!--contains all asteroids data-->
+<!doctype html>
+{% extends "base.html" %}
+
+{% block title %}Asteroids{% endblock %}
+
+	{% block mainblock %}
+		{% if APIResponse|length > 1 %}
+			{% if 'notAvailable' in APIResponse[0] %}
+				<div class="main-data-block">
+					<div>No asteroids found {{ typeText }}.<br><hr></ht>Please try again later.</div>
+				</div>
+			{% else %}
+				{% for item in APIResponse %}
+					<div class="main-data-block">
+						<div>Asteroid Name: {{ item.name }}</div>
+						<div>Report Date: {{ item.fromDate }}</div>
+						<div>Diameter Min (Km): {{ item.diameterEstMin }}</div>
+						<div>Diameter Max (Km): {{ item.diameterEstMax }}</div>
+						<div>Hazardous?: {{ item.hazardous }}</div>
+						<div>Close Encounter Date: {{ item.cameCloser }}</div>
+						<div><a href="{{ item.details }}" target="_blank" >More Info</a></div>
+					</div>
+				{% endfor %}
+			{% endif %}
+		{% else %}
+			<div class="main-data-block">
+				<div>NASA API is not available or available limit is exceeded.<br><hr></ht>Please try again later.</div>
+			</div>
+		{% endif %}
+	{% endblock %}
